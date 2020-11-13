@@ -1,20 +1,20 @@
 <?php
 /*
-DATABASE
+DATABASE Structure
 
 hot-chat:
 -chat:
-	id
+	id (AI)
 	usersend
 	usergive
 	message
 
 -users:
-	id
-	username
+	id (AI)
+	username (unique)
 	password
-	email
-	pic
+	email (unique)
+	pic (default.png)
 
 */
 
