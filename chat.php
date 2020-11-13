@@ -12,13 +12,13 @@
         ?>
                 <div class="messages">
                     <div class="message-pic">
-                        <img src="pic/default.png" alt="user picture">
+                        <img src="pic/default.png" alt="user picture"> <!-- solve it -->
                     </div>
                     <div class="pointer">
 
                     </div>
                     <div class="message-text">
-                        <h1><?php echo $row["message"]; ?></h1>
+                        <h1><?php echo $row["message"]; ?></h1> <!-- solve it -->
                     </div>
                 </div>
         <?php
