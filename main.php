@@ -48,8 +48,19 @@ if($_SESSION["password"] == ""){
                     ?>
                             <a href="main.php?scr=<?php echo $i; ?>">
                                 <div class="lists">
-                                     <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
-                                    <h1><?php echo $row["usergive"] ?></h1> <!-- solve this show username -->
+                                    <?php
+                                        if ($_SESSION["username"] == $row["usersend"]) {
+                                        ?>
+                                            <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
+                                            <h1><?php echo $row["usergive"] ?></h1>
+                                    <?php
+                                        }else {
+                                    ?>
+                                    <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
+                                    <h1><?php echo $row["usersend"] ?></h1>
+                                    <?php
+                                        }
+                                     ?>
                                 </div>
                             </a>
                     <?php
