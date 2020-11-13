@@ -1,0 +1,176 @@
+*{
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:visited {
+    color: white;
+}
+main{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../pic/background.jpeg) no-repeat center ;
+    background-size: cover;
+}
+aside{
+    float: left;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+}
+.lists{
+    width: 100%;
+    height: 10%;
+    overflow: hidden;
+    line-height: normal;
+    color: black;
+    display: flex;
+    align-items: center;
+
+}
+
+.lists img{
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 50%;
+    width: 2.62rem;
+    height: 2.62rem;
+}
+.lists:hover{
+    background: rgba(0, 0, 0, 0.5);
+}
+.aside{
+    width: 100%;
+    height: 90%;
+    float: left;
+}
+.menu{
+    font-size: 28px;
+    color: white;
+}
+.bar{
+    background: #BFD7B7;
+    width: 100%;
+    height: 10%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.search{
+    margin-left: 5px;
+    border: none;
+    border:none;
+    outline: none;
+    overflow: hidden;
+    background: rgba(0,0,0,.5);
+    color: white;
+    font-size: 20px;
+    margin-right: 5px;
+    width: 80%;
+    height: 35px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.proPic{
+    margin-top: 10px;
+}
+.proPic img{
+    border-radius: 50%;
+}
+
+.nav{
+  width: 0%;
+  height: 90vh;
+  overflow-x: hidden;
+  z-index: 1;
+  background: #DEE9CB;
+  transition: 0.3s;
+  display: block;
+  text-align: center;
+  position: fixed;
+
+}
+.nav a{
+  color: black;
+  font-size: 22px;
+  text-decoration: none;
+  display: block;
+  font-family: sans-serif;
+  padding: 1em 0;
+  transition: 0.3s;
+  clear: left;
+}
+/* .nav a:not(:first-child):hover{
+    background: white;
+    color: black;
+} */
+.nav a:hover{
+    background: white;
+    color: black;
+}
+article{
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url(../pic/background.jpeg) no-repeat center ;
+    background-size: cover;
+}
+.close{
+    font-size: 36px;
+    display: none;
+}
+
+@media only screen and (max-width:850px) {
+    aside{
+        width: 30%;
+    }
+    .nav{
+        width: 30%;
+    }
+    article{
+        width: 70%;
+    }
+}
+@media only screen and (max-width:650px) {
+    aside{
+        width: 55%;
+    }
+    .nav{
+        width: 45%;
+    }
+    article{
+        width: 55%;
+    }
+    .search{
+        margin-left: 0px;
+        margin-right: 20%;
+        width: 60%;
+    }
+
+}
+@media only screen and (max-width:450px) {
+    aside{
+        width: 100%;
+    }
+    .nav{
+        width: 100%;
+    }
+    article{
+        width: 0%;
+    }
+    .search{
+        margin-left: 0px;
+        margin-right: 5%;
+        width: 80%;
+    }
+}
