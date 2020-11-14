@@ -37,7 +37,7 @@ if($_SESSION["password"] == ""){
                         <a href="#" onclick="openNav()" id="open"><i class="fas fa-bars"></i></a>
                         <a href="javascript:void(0)" id="close" class="close" onclick="closeNav()"><i class="fas fa-times"></i></a>
                     </div>
-                    <input class="search" type="text" name="search" placeholder="search...">
+                    <input class="search" type="text" name="search" placeholder="search..."> <!-- write user searching -->
                 </div>
                 <div class="aside">
                     <?php
@@ -46,18 +46,18 @@ if($_SESSION["password"] == ""){
                         $i=1;
                         while($row=mysqli_fetch_array($res,1)):
                     ?>
-                            <a href="main.php?scr=<?php echo $i; ?>">
+                            <a href="main.php?usr=<?php echo $i; ?>">
                                 <div class="lists">
                                     <?php
                                         if ($_SESSION["username"] == $row["usersend"]) {
                                         ?>
                                             <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
-                                            <h1><?php echo $row["usergive"] ?></h1>
+                                            <h1><?php echo $row["usergive"]; ?></h1>
                                     <?php
                                         }else {
                                     ?>
                                     <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
-                                    <h1><?php echo $row["usersend"] ?></h1>
+                                    <h1><?php echo $row["usersend"]; ?></h1>
                                     <?php
                                         }
                                      ?>
