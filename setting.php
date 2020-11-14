@@ -1,12 +1,14 @@
 <?php
+// TODO solve it
     include 'functions.php';
     if( ! isset($_SESSION["password"])){
         header("location:index.php?er=AccessDenied");
     }
-    if (isset($_POST["submit"]) && ($_SESSION["password"] == $_POST["password"])) {
+
+    if (isset($_POST["submit"]) && ($_SESSION["password"] == md5($_POST["password"]))) {
         $id=$_SESSION["id"];
         $username=$_POST["username"];
-        $password=$_POST["new-password"];
+        $password=md5($_POST["new-password"]);
         $email=$_POST["email"];
         $sql="UPDATE `users` SET `username`='$username',`password`='$password',`email`='$email' WHERE id='$id'";
         $res=mysqli_query($connect,$sql);

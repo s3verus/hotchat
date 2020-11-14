@@ -2,7 +2,7 @@
 include 'functions.php';
 if (isset($_POST["submit"])) {
     $user=$_POST["username"];
-    $pass=$_POST["password"];
+    $pass=md5($_POST["password"]);
     $email=$_POST["email"];
     $sql="INSERT INTO `users`( `username`, `password`, `email`) VALUES ('$user','$pass','$email')";
     $res=mysqli_query($connect,$sql);
