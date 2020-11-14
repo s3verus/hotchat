@@ -2,7 +2,7 @@
 include 'functions.php';
 if (isset($_POST["submit"])) {
     $user=mysqli_real_escape_string($connect,$_POST["username"]);
-    $pass=mysqli_real_escape_string($connect,$_POST["password"]);
+    $pass=md5(mysqli_real_escape_string($connect,$_POST["password"]));
     $sql="SELECT * FROM `users` WHERE username='$user' AND password='$pass'";
     $res=mysqli_query($connect,$sql);
 
