@@ -25,11 +25,20 @@
             $i=$i+1;
             endwhile;
         ?>
-        <!-- TODO solve sending messages -->
-    </div>
-    <div class="chat-line">
-        <a href="#"><i class="fas fa-paperclip"></i></a>
-        <textarea class="message-bar" name="message" placeholder="write somethings..."></textarea>
-        <input class="chat-btm" type="submit" name="send" value="send">
-    </div>
+    </div> <!-- TODO solve sending messages -->
+        <form class="chat-line" action="main.php" method="post">
+            <a href="#"><i class="fas fa-paperclip"></i></a>
+            <input class="message-bar" name="message" placeholder="write somethings...">
+            <input class="chat-btm" type="submit" name="send" value="send">
+        </form>
 </div>
+<?php
+    if (isset($_POST["send"])) {
+        $usersend=$_SESSION["username"];
+        $usergive="";
+        $message=$_POST["message"];
+        $sql="INSERT INTO `chat`(`usersend`, `usergive`, `message`) VALUES ('$usersend','$usergive','$message')";
+        $res=mysqli_query($connect,$sql);
+        header("location:main.php");
+    }
+ ?>
