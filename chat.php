@@ -1,7 +1,15 @@
 <div class="chat-main">
     <div class="chat-bar">
         <div class="info">
-                <img src="pic/default.png" alt="user picture"><!-- solve it -->
+                <?php
+                    $user = $_GET["usr"];
+                    $res = getOtherPicture($user);
+                    while($row=mysqli_fetch_array($res,1)):
+                 ?>
+                <img src="pic/<?php echo $row["pic"];?>" alt="user picture">
+                <?php
+                    endwhile;
+                 ?>
                 <h4><?php echo $_GET["usr"]; ?></h4>
         </div>
     </div>
@@ -16,9 +24,6 @@
         <?php
                     if ($_SESSION["username"] == $row["usersend"] && $_GET["usr"] == $row["usergive"]) {
         ?>
-                    <div class="message-pic">
-                        <img src="pic/default.png" alt="user picture">
-                    </div>
                     <div class="pointer"></div>
                     <div class="message-text greenit">
                         <h1><?php echo $row["message"]; ?></h1>
@@ -26,9 +31,6 @@
         <?php
                     }elseif ($_SESSION["username"] == $row["usergive"] && $_GET["usr"] == $row["usersend"]) {
         ?>
-                        <div class="message-pic">
-                            <img src="pic/default.png" alt="user picture">
-                        </div>
                         <div class="pointer"></div>
                         <div class="message-text">
                             <h1><?php echo $row["message"]; ?></h1>
