@@ -1,28 +1,10 @@
 <?php
-/*
-DATABASE Structure
-
-hot-chat:
--chat:
-	id (AI)
-	usersend
-	usergive
-	message
-
--users:
-	id (AI)
-	username (unique)
-	password
-	email (unique)
-	pic (default.png)
-
-*/
 
 // TODO clean codes please
 session_start();
 function connect_db(){
     GLOBAL $connect;
-    $connect = mysqli_connect("localhost","admin","iamnotadmin","hot-chat");
+    $connect = mysqli_connect("localhost","admin","iamnotadmin","hot-chat"); // host, username, password, DataBase
 }
 connect_db();
 
@@ -79,4 +61,3 @@ function checkSession($user,$pass)
 }
 */
 ?>
-
