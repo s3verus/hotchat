@@ -86,6 +86,9 @@
     text-align: left;
     margin: auto 0;
 }
+.greenit{
+    background-color: lightgreen;
+}
 .pointer{
     width: 0;
     height: 0;
@@ -99,7 +102,14 @@
     height: 3rem;
     width: 3rem;
 }
+.info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
 .info img{
+    margin-right: 10px;
     width: 3rem;
     height: 3rem;
 
