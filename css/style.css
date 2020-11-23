@@ -87,13 +87,13 @@ aside{
 }
 
 .nav{
-  width: 0%;
+  width: 20%;
   height: 90vh;
   overflow-x: hidden;
   z-index: 1;
   background: #DEE9CB;
   transition: 0.3s;
-  display: block;
+  display: none;
   text-align: center;
   position: fixed;
 

@@ -17,9 +17,11 @@ if($_SESSION["password"] == ""){
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript">
+
             function openNav() {
                 document.getElementById("open").style.display = "none";
-                document.getElementById("nav").style.width = "20%"; //solve it for other widths
+                document.getElementById("nav").style.display = "block";
+                document.getElementById("nav").style.width = document.getElementById("aside").style.width;
                 document.getElementById("close").style.display = "block";
             }
             function closeNav() {
@@ -31,11 +33,11 @@ if($_SESSION["password"] == ""){
     </head>
     <body>
         <main>
-            <aside>
+            <aside id="aside">
                 <div class="bar">
                     <div class="menu">
-                        <a href="#" onclick="openNav()" id="open"><i class="fas fa-bars"></i></a>
-                        <a href="javascript:void(0)" id="close" class="close" onclick="closeNav()"><i class="fas fa-times"></i></a>
+                        <a id="close" class="close" onclick="closeNav()"><i class="fas fa-times"></i></a>
+                        <a id="open" onclick="openNav()"><i class="fas fa-bars"></i></a>
                     </div>
                     <input class="search" type="text" name="search" placeholder="search..."> <!-- write user searching -->
                 </div>
@@ -45,7 +47,7 @@ if($_SESSION["password"] == ""){
                         $res=getChats($user);
                         $i=1;
                         while($row=mysqli_fetch_array($res,1)):
-                            if ($_SESSION["username"] == $row["usersend"]) { //i add some bugs here
+                            if ($_SESSION["username"] == $row["usersend"]) {
                     ?>
                             <a href="main.php?usr=<?php echo $row["usergive"]; ?>">
                     <?php
@@ -55,7 +57,7 @@ if($_SESSION["password"] == ""){
                     <?php
                                 }
                     ?>
-                                <div class="lists">
+                                <div class="lists"> <!-- i add some bugs here -->
                                     <?php
                                         if ($_SESSION["username"] == $row["usersend"]) {
                                         ?>
