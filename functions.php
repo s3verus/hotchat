@@ -1,8 +1,9 @@
 <?php
-
-// TODO clean codes please
 session_start();
 function connect_db(){
+    /*
+        mysqli connect function
+    */
     GLOBAL $connect;
     $connect = mysqli_connect("localhost","admin","iamnotadmin","hot-chat"); // host, username, password, DataBase
 }
@@ -14,17 +15,34 @@ function getChats($user){
 	$res=mysqli_query($connect,$sql);
 	return $res;
 }
+
 function getPicture($id){
+    /*
+        get your id for show your picture
+    */
 	GLOBAL $connect;
 	$sql="SELECT * FROM `users` WHERE id = '$id' ORDER by `id` DESC ";
 	$res=mysqli_query($connect,$sql);
 	return $res;
 }
-function uploadPicture($id,$pre)
-{
+
+function getOtherPicture($user){
+    /*
+        get other users username for show their picture
+    */
+	GLOBAL $connect;
+	$sql="SELECT * FROM `users` WHERE username = '$user' ORDER by `id` DESC ";
+	$res=mysqli_query($connect,$sql);
+	return $res;
+}
+
+function uploadPicture($id,$pre){
+    /*
+        get your id and a pre for create name to save picture in DataBase
+    */
     GLOBAL $connect;
     $pic=$_FILES["pic"];
-    if(is_uploaded_file($pic["tmp_name"])){
+    if(is_uploaded_file($pic["tmp_name"])){ // check picture type
         $dst="pic/";
         if($pic["type"]=="image/jpg"){
 		    $type="jpg";
@@ -40,9 +58,12 @@ function uploadPicture($id,$pre)
     $res=mysqli_query($connect,$sql);
 	header("location:main.php?er=uploaded!");
 }
+
+// TODO clean codes please
 // TODO create email Authentication
 // TODO create Encryption function
 // TODO solve logical bug on Authentication for main page
+
 /*
 function checkSession($user,$pass)
 {

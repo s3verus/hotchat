@@ -4,7 +4,7 @@ include 'functions.php';
 if($_SESSION["password"] == ""){
     header("location:index.php?er=AccessDenied");
 }
-
+// TODO solve private chat for phone devices
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,7 +17,6 @@ if($_SESSION["password"] == ""){
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript">
-
             function openNav() {
                 document.getElementById("open").style.display = "none";
                 document.getElementById("nav").style.display = "block";
@@ -42,59 +41,57 @@ if($_SESSION["password"] == ""){
                     <input class="search" type="text" name="search" placeholder="search..."> <!-- write user searching -->
                 </div>
                 <div class="aside">
-                    <?php
+                <?php
                         $user=$_SESSION["username"];
                         $res=getChats($user);
                         $i=1;
                         while($row=mysqli_fetch_array($res,1)):
                             if ($_SESSION["username"] == $row["usersend"]) {
-                    ?>
-                            <a href="main.php?usr=<?php echo $row["usergive"]; ?>">
-                    <?php
+                ?>
+                                <a href="main.php?usr=<?php echo $row["usergive"]; ?>">
+                <?php
                             }else{
-                    ?>
+                ?>
                                 <a href="main.php?usr=<?php echo $row["usersend"]; ?>">
-                    <?php
-                                }
-                    ?>
-                                <div class="lists"> <!-- i add some bugs here -->
-                                    <?php
-                                        if ($_SESSION["username"] == $row["usersend"]) {
-                                        ?>
-                                            <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
-                                            <h1><?php echo $row["usergive"]; ?></h1>
-                                    <?php
-                                        }else {
-                                    ?>
-                                    <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
-                                    <h1><?php echo $row["usersend"]; ?></h1>
-                                    <?php
-                                        }
-                                     ?>
-                                </div>
+                <?php
+                            }
+                ?>
+                            <div class="lists"> <!-- i add some bugs here -->
+                <?php
+                            if ($_SESSION["username"] == $row["usersend"]) {
+                ?>
+                                <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
+                                <h1><?php echo $row["usergive"]; ?></h1>
+                <?php
+                            }else {
+                ?>
+                                <img src="pic/default.png" alt="user picture"> <!-- solve this show user pic -->
+                                <h1><?php echo $row["usersend"]; ?></h1>
+                <?php
+                            }
+                ?>
+                            </div>
                             </a>
-                    <?php
-                        $i=$i+1;
+                <?php
+                            $i=$i+1;
                         endwhile;
-                    ?>
+                ?>
                 </div>
                 <div class="nav" id="nav">
-
                     <div class="proPic">
-                        <?php
+                    <?php
                         $id=$_SESSION["id"];
                         $res=getPicture($id);
-
                         while($row=mysqli_fetch_array($res,1)):
-                        ?>
+                    ?>
                             <img src="pic/<?php echo $row["pic"];?>" alt="profile picture" width="100px" height="100px">
-                        <?php
+                    <?php
                         endwhile;
-                        ?>
+                    ?>
                     </div>
 
                     <h3><?php echo $_SESSION["username"]; ?></h3>
-
+                    <a href="main.php">Home</a>
                     <a href="profile.php">Profile</a>
                     <a href="#">Messages</a>
                     <a href="setting.php">Setting</a>
