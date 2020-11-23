@@ -19,7 +19,7 @@ if($_SESSION["password"] == ""){
         <script type="text/javascript">
             function openNav() {
                 document.getElementById("open").style.display = "none";
-                document.getElementById("nav").style.width = "20%";
+                document.getElementById("nav").style.width = "20%"; //solve it for other widths
                 document.getElementById("close").style.display = "block";
             }
             function closeNav() {
@@ -45,8 +45,16 @@ if($_SESSION["password"] == ""){
                         $res=getChats($user);
                         $i=1;
                         while($row=mysqli_fetch_array($res,1)):
+                            if ($_SESSION["username"] == $row["usersend"]) { //i add some bugs here
                     ?>
-                            <a href="main.php?usr=<?php echo $i; ?>">
+                            <a href="main.php?usr=<?php echo $row["usergive"]; ?>">
+                    <?php
+                            }else{
+                    ?>
+                                <a href="main.php?usr=<?php echo $row["usersend"]; ?>">
+                    <?php
+                                }
+                    ?>
                                 <div class="lists">
                                     <?php
                                         if ($_SESSION["username"] == $row["usersend"]) {
@@ -93,7 +101,11 @@ if($_SESSION["password"] == ""){
 
             </aside>
             <article class="">
-                <?php include 'chat.php'; ?>
+                <?php
+                if(isset($_GET["usr"])){
+                    include 'chat.php';
+                }
+                ?>
             </article>
         </main>
     </body>
