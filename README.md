@@ -11,8 +11,8 @@ i'm try to clean and safe them please wait...
 
 - [x] user Authentication
 - [x] password decryption
-- [ ] solve private chat bugs
-- [ ] solve sending messages bugs
+- [x] solve private chat bugs - but some new bugs added!
+- [x] solve sending messages bugs - but some new bugs added!
 - [ ] messages decryption
 - [ ] searching users
 - [ ] verify users with email
